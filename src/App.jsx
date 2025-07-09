@@ -1,10 +1,12 @@
 import Routing from "./Routing/Routing";
+import PrefixRoute from "./RoutePrefix/PrefixRoute";
 
 function App() {
   return (
     
       <div>
-        <Routing />
+        {/* <Routing /> */}
+        <PrefixRoute />
       </div>
     
   );
