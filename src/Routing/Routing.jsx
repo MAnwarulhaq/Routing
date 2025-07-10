@@ -8,6 +8,8 @@ import StudentData from './CollegeData/StudentData';
 import DepartmentData from './CollegeData/DapartmentData';
 import Faculty from './CollegeData/Faculty';
 import CollegeDetail from './CollegeData/CollegeDetail';
+import Users from './Users';
+import UserDetails from './UserDetails';
 function Routing() {
   return (
     
@@ -20,6 +22,7 @@ function Routing() {
             <Link to="/about" style={styles.link}>About</Link>
             <Link to="/login" style={styles.link}>Login</Link>
             <Link to="/college/" style={styles.link}>College</Link>
+             <Link to="/users" style={styles.link}>Users</Link>
           </div>
         </nav>
 
@@ -35,6 +38,8 @@ function Routing() {
               <Route path="department" element={<DepartmentData />} />
               <Route path="faculty" element={<Faculty />} />
             </Route>
+            <Route path="/users" element={<Users />} />
+            <Route path='/users/:id' element={<UserDetails/>}/>
             <Route path="/*" element={<PageNotFound />} />
           </Routes>
         </div>
