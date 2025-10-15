@@ -59,15 +59,11 @@ const Users = () => {
   ];
 
   const [hoveredCard, setHoveredCard] = useState(null);
-  const handlelogOut = ()=>{
-    localStorage.removeItem("login")
-    navigate('/login')
-
-  }
+ 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>User List</h1>
-      <button onClick={handlelogOut}>LogOut</button>
+      
       <div style={styles.userList}>
         {users.map((user) => {
           const isHovered = hoveredCard === user.id;

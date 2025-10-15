@@ -10,11 +10,15 @@ import PrivateRouting from "./PrivateRouting/PrivateRouting";
 import StudentData from "./Routing/CollegeData/StudentData"
 import Faculty from "./Routing/CollegeData/Faculty"
 import DepartmentData from './Routing/CollegeData/DapartmentData'
+import Logout from "./Routing/Logout";
 function App() {
+  const login = localStorage.getItem("login")
   return (
     <>
 
         <Navbar/>
+
+        
       
       <Routes>
 
@@ -32,6 +36,8 @@ function App() {
           <Route path="faculty" element={<Faculty/>}/>
 
         </Route>
+        {/* <Route path="/logout" element={<Logout/>}/> */}
+          <Route path="/logout" element= {<PrivateRouting component={<Logout/>}/>}></Route>
 
       </Routes>
       

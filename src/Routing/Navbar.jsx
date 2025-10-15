@@ -6,12 +6,15 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
+  const login = localStorage.getItem("login")
+
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
     { name: "Users", path: "/users" },
     { name: "Login", path: "/login" },
     { name: "College", path: "/college" },
+    { name: "Logout", path: "/logout" },
   ];
 
   return (
@@ -33,21 +36,28 @@ const Navbar = () => {
         </div>
 
         {/* Links */}
+        {
+          login?
+          <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
+          <li><Link to="/">Home</Link></li>
+           <li><Link to="/about">About</Link></li>
+            <li><Link to="/users">Users</Link></li>
+            <li><Link to="/college">College</Link></li>
+            <li><Link to="/logout">Logout</Link></li>
+            
+            
+        </ul>:
         <ul className={`nav-links ${menuOpen ? "open" : ""}`}>
-          {navLinks.map((link) => (
-            <li key={link.path}>
-              <Link
-                to={link.path}
-                className={
-                  location.pathname === link.path ? "active-link" : ""
-                }
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.name}
-              </Link>
-            </li>
-          ))}
+          <li><Link to="/">Home</Link></li>
+           <li><Link to="/about">About</Link></li>
+          
+            <li><Link to="/login">Login</Link></li>
+           
+            
+            
         </ul>
+        }
+        
       </div>
     </nav>
   );
