@@ -1,5 +1,6 @@
 import React from 'react'
 import { Routes, Route, Link, Outlet } from 'react-router-dom'
+import CollegeDetail from './CollegeDetail'
 
 import './College.css' // ✅ Link to external CSS
 
@@ -13,6 +14,7 @@ const College = () => {
         <Link to="department" className="college-link">Department Data</Link>
         <Link to="faculty" className="college-link">Faculty Information</Link>
       </nav>
+      <CollegeDetail/>
 
       <div className="college-content">
         <Outlet />

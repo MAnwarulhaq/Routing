@@ -1,6 +1,20 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const navigate = useNavigate();
+  const handleLogin = () => {
+    localStorage.setItem('login', true);
+    navigate('/')
+
+  }
+  useEffect(() => {
+    let login = localStorage.getItem('login');
+    if (login) {
+      navigate('/')
+    }
+  }, [])
   return (
     <div style={styles.container}>
       <h1 style={styles.heading}>Login</h1>
@@ -13,7 +27,7 @@ const Login = () => {
           <label style={styles.label}>Password:</label>
           <input type="password" placeholder="Enter your password" style={styles.input} />
         </div>
-        <button type="submit" style={styles.button}>Login</button>
+        <button type="submit" style={styles.button} onClick={handleLogin}>Login</button>
       </form>
     </div>
   );

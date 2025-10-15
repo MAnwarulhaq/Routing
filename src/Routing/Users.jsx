@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link ,useNavigate} from 'react-router-dom';
+
 
 const styles = {
   container: {
@@ -47,6 +48,7 @@ const styles = {
 };
 
 const Users = () => {
+  const navigate = useNavigate()
   const users = [
     { id: 1, name: 'Haadi', email: 'haadi@example.com' },
     { id: 2, name: 'Ali', email: 'ali@example.com' },
@@ -57,10 +59,15 @@ const Users = () => {
   ];
 
   const [hoveredCard, setHoveredCard] = useState(null);
+  const handlelogOut = ()=>{
+    localStorage.removeItem("login")
+    navigate('/login')
 
+  }
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>User List</h1>
+      <button onClick={handlelogOut}>LogOut</button>
       <div style={styles.userList}>
         {users.map((user) => {
           const isHovered = hoveredCard === user.id;
